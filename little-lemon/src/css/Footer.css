@@ -1,0 +1,13 @@
+footer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    font-size: larger;
+}
+
+ul {
+    list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+}

@@ -1,0 +1,22 @@
+img {
+  border-radius: 16%;
+}
+
+.special-image {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.banner-image {
+  max-height: 300px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.testimonial-image {
+  max-height: 200px;
+}
+
+.about-image {
+  max-height: 250px;
+}

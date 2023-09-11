@@ -1,8 +1,17 @@
 import './App.css';
+import Banner from './Banner';
+import { SpecialCards } from './SpecialCards';
+import Testimonials from './Testimonials';
+import About from './About';
 
 function Main() {
   return (
-      <main></main>
+      <main>
+        <Banner />
+        <SpecialCards />
+        <Testimonials />
+        <About/>
+      </main>
   );
 }
 

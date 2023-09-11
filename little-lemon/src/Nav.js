@@ -1,16 +1,15 @@
 import './App.css';
+import './css/Nav.css';
 
 function Nav() {
   return (
       <nav>
-        <ul>
-          <li><a href="\">Home</a></li>
-          <li><a href="\">About</a></li>
-          <li><a href="\">Menu</a></li>
-          <li><a href="\">Reservations</a></li>
-          <li><a href="\">Order Online</a></li>
-          <li><a href="\">Login</a></li>
-        </ul>
+        <a href="\">Home</a>
+          <a href="\">About</a>
+          <a href="\">Menu</a>
+          <a href="\">Reservations</a>
+          <a href="\">Order Online</a>
+          <a href="\">Login</a>
       </nav>
   );
 }

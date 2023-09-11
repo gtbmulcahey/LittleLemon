@@ -1,4 +1,4 @@
-import './App.css';
+import './css/Footer.css';
 import { ImageDisplay } from './ImageDisplay';
 import { printProps } from './printProps';
 

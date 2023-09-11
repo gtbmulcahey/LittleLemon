@@ -24,6 +24,40 @@
   color: white;
 }
 
+.olive-background {
+  background-color: #495E57;
+}
+
+.gold {
+  color: #F4CE14;
+}
+
+.gold-background {
+  background-color: #F4CE14;
+}
+
+.white {
+  color: white;
+}
+
+.split {
+  display: flex;
+  justify-content: space-around;
+}
+
+.half {
+  width: 50%;
+}
+
+/*gold color #F4CE14
+
+title 64 Markazi
+*/
+
+/* h1 {
+  font-size: larger;
+} */
+
 .App-link {
   color: #61dafb;
 }

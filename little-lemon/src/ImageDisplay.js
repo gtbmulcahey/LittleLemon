@@ -1,9 +1,12 @@
-export const ImageDisplay = ({height, alt, imageName}) => {
+import './css/ImageDisplay.css';
+
+export const ImageDisplay = ({alt, imageName, className}) => {
 
     const images = require.context('./images', true);
 
     return (
-        <img height={height}
+        <img 
+        className={className}
         alt={alt}
         src={images(`./${imageName}`)}/>
     );
