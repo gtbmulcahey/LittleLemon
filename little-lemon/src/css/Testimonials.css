@@ -2,3 +2,12 @@
     display: flex;
     justify-content: space-around;
 }
+
+.testimonial-card {
+    display: grid;
+}
+
+.image-and-review {
+    display: flex;
+    justify-content: space-around;
+}

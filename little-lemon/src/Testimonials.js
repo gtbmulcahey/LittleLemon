@@ -9,7 +9,7 @@ function Testimonials() {
     {
         id: 1,
         name: "Hope Penny",
-        review: "Review of fantastic food goes here",
+        review: "Review of fantastic food goes here asdfasdfadsfadfasdfasdfsdfasdfasfdasdfasdfasdfasdfasdfasdfadfadsfasdf",
         rating: "5.0",
         imageName: "asianWoman.jpg",
         imageAlt: "Hope Penny"
