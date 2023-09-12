@@ -14,9 +14,14 @@ img {
 }
 
 .testimonial-image {
-  max-height: 200px;
+  max-height: 100px;
+  max-width: 120px;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .about-image {
   max-height: 250px;
+  padding: 5%; 
+  max-width: 10em;
 }

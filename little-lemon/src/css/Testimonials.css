@@ -1,13 +1,19 @@
 .testimonials {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
     justify-content: space-around;
 }
 
 .testimonial-card {
-    display: grid;
+    width: min-content;
+    display: flex;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
-.image-and-review {
-    display: flex;
-    justify-content: space-around;
+.review {
+    width: 10rem;
+    max-width: max-content;
 }

@@ -7,11 +7,11 @@ function Banner() {
     const ImageWrapped = printProps(ImageDisplay);
   return (
       <div className='split olive-background'>
-        <span className='half'>
+        <span>
             <LittleLemonChicago />
-            <span className='white'>Little lemon banner description elaborate here asdfasdfasdfasdfasfdasefasdfadsfasdfaasdfasdfasdfasdfasfdasefasdfadsfasdfaasdfasdfasdfasdfasfdasefasdfadsfasdfa</span>
+            <span className='white'>Little lemon banner description elaborate here asdfasdfa sdfasdfasf dasefasdfa dsf asdfaasdfasd fasdfa sdfa sfdasefasdfadsfasdfaas dfasdf asdf</span>
         </span>
-        <span className='half'>
+        <span>
             <ImageWrapped className="banner-image" alt="little lemon" imageName="restaurantfood.jpg" />
         </span>
       </div>

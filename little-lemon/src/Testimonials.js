@@ -9,7 +9,7 @@ function Testimonials() {
     {
         id: 1,
         name: "Hope Penny",
-        review: "Review of fantastic food goes here asdfasdfadsfadfasdfasdfsdfasdfasfdasdfasdfasdfasdfasdfasdfadfadsfasdf",
+        review: "Review of fantastic food goes here asdfasdfa dsfad fasdfas dfsdfa sdfasfd asdfasd fasdfasd fasdfasdf adfadsfasdf",
         rating: "5.0",
         imageName: "asianWoman.jpg",
         imageAlt: "Hope Penny"
@@ -17,7 +17,7 @@ function Testimonials() {
     {
       id: 2,
       name: "Zahara Clemons",
-      review: "Review of fantastic food goes here",
+      review: "Review of fantastic food goes here adsfad fadfa dfa sdfak fkjf a;lkj fa;lfk ja;lk jfa;k fjas dlkfj slkfjdsl kjfds  lddkjfl skdjf",
       rating: "5.0",
       imageName: "blackWoman.jpg",
       imageAlt: "Zahara Clemons"
@@ -25,7 +25,7 @@ function Testimonials() {
   {
     id: 3,
     name: "Jason Heinz",
-    review: "Review of fantastic food goes here",
+    review: "Review of fantastic food goes here aslfdkja fdkja;ldf kja;lsdkjf a;lkdfja skjf;al",
     rating: "5.0",
     imageName: "randomGuy.jpg",
     imageAlt: "Jason Heinz"

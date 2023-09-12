@@ -8,14 +8,13 @@ export const TestimonialCard = ({testimonial}) => {
     const ImageWrapped = printProps(ImageDisplay);
   return (
       <div className="testimonial-card">
-      <div>{rating}</div>
-        <div className="image-and-review">
             <ImageWrapped className="testimonial-image" alt={imageAlt} imageName={imageName} />
-            <span>{review}</span>
-        </div>
-        <div>
-            {name}
-        </div>
+            <span>{rating}</span>
+            <span>
+              {name}
+          </span>
+            <span className="review">{review}</span>
+
       </div>
   );
 }

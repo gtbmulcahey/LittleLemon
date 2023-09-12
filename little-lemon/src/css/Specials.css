@@ -1,8 +1,10 @@
 .specials {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .special-card {
     display: grid;
+    width: min-content;
+    padding:5%;
 }
