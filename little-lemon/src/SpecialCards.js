@@ -31,12 +31,12 @@ export const  SpecialCards = () => {
 ]
     return (
         <>
-        <h1>This Week's Specials</h1>
-        <div className='specials'>
-            <SpecialCard dish = {dishes[0]} />
-            <SpecialCard dish = {dishes[1]} />
-            <SpecialCard dish = {dishes[2]} />
-        </div>
+            <h1>This Week's Specials</h1>
+            <div className='specials'>
+                <SpecialCard dish = {dishes[0]} />
+                <SpecialCard dish = {dishes[1]} />
+                <SpecialCard dish = {dishes[2]} />
+            </div>
         </>
     )
 }
