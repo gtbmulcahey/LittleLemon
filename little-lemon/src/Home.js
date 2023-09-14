@@ -4,7 +4,7 @@ import { SpecialCards } from './SpecialCards';
 import Testimonials from './Testimonials';
 import About from './About';
 
-function Main() {
+function Home() {
 
   return (
       <main>
@@ -16,4 +16,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Home;

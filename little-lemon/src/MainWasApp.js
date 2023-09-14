@@ -3,14 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
 import Nav from './Nav';
-import Home from './Home';
+import Main from './Main';
 import Footer from './Footer';
 import About from './About';
 import Menu from './Menu';
 import Bookings from './Bookings';
 import OrderOnline from './OrderOnline';
 
-function App() {
+function Main() {
   const [availableTimes, setAvailableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']);
   const [field, setField] = useState('res-date');
 
@@ -21,7 +21,7 @@ function App() {
         <Header/>
         <Nav/>
         <Routes> 
-          <Route path="/" element={<Home/>}></Route>
+          <Route path="/" element={<Main/>}></Route>
           <Route path="/About" element={<About/>}></Route>
           <Route path="/Menu" element={<Menu/>}></Route>
           <Route path="/Bookings" element={<Bookings availableTimes={availableTimes} field={field} setField={setField}/>}></Route>
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;

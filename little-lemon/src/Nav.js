@@ -4,12 +4,12 @@ import './css/Nav.css';
 function Nav() {
   return (
       <nav>
-        <a href="\">Home</a>
-          <a href="\">About</a>
-          <a href="\">Menu</a>
-          <a href="\">Reservations</a>
-          <a href="\">Order Online</a>
-          <a href="\">Login</a>
+        <a href="/">Home</a>
+          <a href="/About">About</a>
+          <a href="/Menu">Menu</a>
+          <a href="/Bookings">Reservations</a>
+          <a href="/OrderOnline">Order Online</a>
+          <a href="/Login">Login</a>
       </nav>
   );
 }
