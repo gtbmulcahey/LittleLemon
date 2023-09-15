@@ -5,7 +5,8 @@ function BookingForm( {availableTimes, field, setField}) {
 
     useEffect(() => {
         console.log(`field is ${field} right now`);
-    }, [field]);
+        console.log(`availableTimes is ${availableTimes} right now`);
+    }, [field, availableTimes]);
 
     
     return (

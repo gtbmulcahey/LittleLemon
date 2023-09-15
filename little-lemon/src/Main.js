@@ -11,9 +11,13 @@ import Bookings from './Bookings';
 import OrderOnline from './OrderOnline';
 
 function Main() {
-  const [availableTimes, setAvailableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']);
+  
   const [field, setField] = useState('res-date');
-
+  const initialAvailableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+  
+  const [availableTimes, setAvailableTimes] = useState(initialAvailableTimes);
+  
+  
 
   return (
     <BrowserRouter>
