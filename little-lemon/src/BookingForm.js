@@ -9,13 +9,18 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
         console.log(`dispatch is ${dispatch} right now`);
     }, [field, availableTimes, dispatch]);
 
-    
+    const handleDateChange = (e) => {
+        console.log(e.currentTarget.value);
+        setField(e.currentTarget.id);
+        dispatch({type: 'updateTimesBasedOnDate'});
+    }
+
     return (
         <div>
             <form className="reservations">
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" 
-                    onChange={() => setField("res-date")}
+                    onChange={handleDateChange}
                 />
                 <label htmlFor="res-time">Choose time</label>
                 <select id="res-time" onChange={() => setField("res-time")}>
