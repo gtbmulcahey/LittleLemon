@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import './css/Reservations.css';
 
-function BookingForm( {availableTimes, field, setField}) {
+function BookingForm( {availableTimes, dispatch, field, setField}) {
 
     useEffect(() => {
         console.log(`field is ${field} right now`);
         console.log(`availableTimes is ${availableTimes} right now`);
-    }, [field, availableTimes]);
+        console.log(`dispatch is ${dispatch} right now`);
+    }, [field, availableTimes, dispatch]);
 
     
     return (
