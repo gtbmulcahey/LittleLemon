@@ -1,13 +1,11 @@
 import './css/ImageDisplay.css';
 
-export const ImageDisplay = ({alt, imageName, className}) => {
-
-    const images = require.context('./images', true);
+export const ImageDisplay = ({alt, imageImported, className}) => {
 
     return (
         <img 
         className={className}
         alt={alt}
-        src={images(`./${imageName}`)}/>
+        src={imageImported}/>
     );
 }

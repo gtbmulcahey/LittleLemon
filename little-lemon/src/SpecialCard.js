@@ -4,12 +4,12 @@ import { ImageDisplay } from './ImageDisplay';
 import { printProps } from './printProps';
 
 export const SpecialCard = ({dish}) => {
-    const {name, price, description, imageName, imageAlt} = dish;
+    const {name, price, description, imageImported, imageAlt} = dish;
     const ImageWrapped = printProps(ImageDisplay);
   return (
       <div className="special-card">
         <span>
-            <ImageWrapped className="special-image" alt={imageAlt} imageName={imageName} />
+            <ImageWrapped className="special-image" alt={imageAlt} imageImported={imageImported} />
         </span>
         <div>
           <div>

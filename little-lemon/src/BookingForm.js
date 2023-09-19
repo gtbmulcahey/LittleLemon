@@ -16,7 +16,6 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
     }
 
     return (
-        <div>
             <form className="reservations">
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" 
@@ -39,7 +38,6 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
                 </select>
                 <input type="submit" value="Make Your reservation"/>
             </form>
-        </div>
     );
 }
 

@@ -13,15 +13,12 @@ import OrderOnline from './OrderOnline';
 function Main() {
   
   const [field, setField] = useState('res-date');
-  //const initialAvailableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
   const initialState = {availableTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']};
 
-
-
   //create a function called initializeTimes which will create the initial state for the availableTimes.
-  // const initializeTimes = () => {
-  //   return initialAvailableTimes;
-  // }
+  const initializeTimes = () => {
+    return initialState;
+  }
   
   const reducer = (state, action) => {
     //return {avaiableTimes: initialAvailableTimes};
@@ -34,7 +31,7 @@ function Main() {
   };
   
   //change availableTimes to a reducer using the useReducer function and provide the two previous functions as parameters.
-  const [state, dispatch] = useReducer(reducer, initialState); 
+  const [state, dispatch] = useReducer(reducer, initializeTimes()); 
   
   useEffect(() => {
     console.log(`field is ${field} right now`);

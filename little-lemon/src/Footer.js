@@ -1,13 +1,14 @@
 import './css/Footer.css';
 import { ImageDisplay } from './ImageDisplay';
 import { printProps } from './printProps';
+import Logo from './images/Logo.svg';
 
 function Footer() {
   const ImageWrapped = printProps(ImageDisplay);
 
   return (
       <footer>
-        <ImageWrapped height="32" width="100" alt="little lemon" imageName="Logo.svg" />
+        <ImageWrapped height="32" width="100" alt="little lemon" imageImported={Logo}/>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/About">About</a></li>

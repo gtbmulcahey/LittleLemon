@@ -1,5 +1,8 @@
 import './css/Specials.css';
 import { SpecialCard } from "./SpecialCard";
+import GreekSalad from './images/greek salad.jpg';
+import Bruschetta from './images/bruchetta.svg';
+import LemonDessert from './images/lemon dessert.jpg';
 
 export const  SpecialCards = () => {
 
@@ -9,7 +12,7 @@ export const  SpecialCards = () => {
             name: "Greek Salad",
             description: "Greek salad description. Greek salad description. Greek salad description. Greek salad description.",
             price: "$12.99",
-            imageName: "greek salad.jpg",
+            imageImported: GreekSalad,
             imageAlt: "greek salad"
         },
         {
@@ -17,7 +20,7 @@ export const  SpecialCards = () => {
             name: "Bruchetta",
             description: "bruchetta description. bruchetta description. bruchetta description. bruchetta description.",
             price: "$10.99",
-            imageName: "bruchetta.svg",
+            imageImported: Bruschetta,
             imageAlt: "bruchetta"
         },
         {
@@ -25,7 +28,7 @@ export const  SpecialCards = () => {
             name: "Lemon Cake",
             description: "Lemon Cake description. Lemon Cake description. Lemon Cake description. Lemon Cake description.",
             price: "$11.99",
-            imageName: "lemon dessert.jpg",
+            imageImported: LemonDessert,
             imageAlt: "lemon cake"
         }
 ]
@@ -33,7 +36,7 @@ export const  SpecialCards = () => {
         <>
             <h1>This Week's Specials</h1>
             <div className='specials'>
-                <SpecialCard dish = {dishes[0]} />
+                <SpecialCard dish = {dishes[0]}/>
                 <SpecialCard dish = {dishes[1]} />
                 <SpecialCard dish = {dishes[2]} />
             </div>

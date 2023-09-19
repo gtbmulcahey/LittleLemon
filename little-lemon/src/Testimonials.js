@@ -1,6 +1,9 @@
 import './App.css';
 import './css/Testimonials.css';
 import { TestimonialCard } from './TestimonialCard';
+import AsianWoman from './images/asianWoman.jpg';
+import BlackWoman from './images/blackWoman.jpg';
+import RandomGuy from './images/randomGuy.jpg';
 
 function Testimonials() {
 
@@ -11,7 +14,7 @@ function Testimonials() {
         name: "Hope Penny",
         review: "Review of fantastic food goes here asdfasdfa dsfad fasdfas dfsdfa sdfasfd asdfasd fasdfasd fasdfasdf adfadsfasdf",
         rating: "5.0",
-        imageName: "asianWoman.jpg",
+        imageImported: AsianWoman,
         imageAlt: "Hope Penny"
     },
     {
@@ -19,7 +22,7 @@ function Testimonials() {
       name: "Zahara Clemons",
       review: "Review of fantastic food goes here adsfad fadfa dfa sdfak fkjf a;lkj fa;lfk ja;lk jfa;k fjas dlkfj slkfjdsl kjfds  lddkjfl skdjf",
       rating: "5.0",
-      imageName: "blackWoman.jpg",
+      imageImported: BlackWoman,
       imageAlt: "Zahara Clemons"
   },
   {
@@ -27,7 +30,7 @@ function Testimonials() {
     name: "Jason Heinz",
     review: "Review of fantastic food goes here aslfdkja fdkja;ldf kja;lsdkjf a;lkdfja skjf;al",
     rating: "5.0",
-    imageName: "randomGuy.jpg",
+    imageImported: RandomGuy,
     imageAlt: "Jason Heinz"
 }
   ]
@@ -36,7 +39,7 @@ function Testimonials() {
       <div className='gold-background'> 
         <h1>Testimonials</h1>
         <div className='testimonials'>
-          <TestimonialCard testimonial={reviews[0]} />
+          <TestimonialCard testimonial={reviews[0]}/>
           <TestimonialCard testimonial={reviews[1]} />
           <TestimonialCard testimonial={reviews[2]} />
         </div>
