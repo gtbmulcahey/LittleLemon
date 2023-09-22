@@ -14,47 +14,27 @@ import availableTimesByDate from "./mockData";
 function Main() {
   
   const [field, setField] = useState('res-date');
-  //const initialState = {availableTimes: ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']};
+  
+  const theDate = '2023-09-22';
 
-  // const fetchData = (date) => {
-  //   if(! date) {
-  //     return { 'availableTimes': availableTimesByDate[0].availableTimes};
-  //   }
-  // }
-
-  //create a function called initializeTimes which will create the initial state for the availableTimes.
   const initializeTimes = (theDate) => {
-    //return initialState;
-    //Update the initializeTimes function that you previously created to use the fetchData API function to return the available times for today’s date. 
-    console.log(`initialize times`);
-    if(!theDate) {
-      console.log(`availableTimesByDate[0].date ${availableTimesByDate[0].date}`);
-      return availableTimesByDate[0].date;
-    } else {
-      for(let i = 0; i < availableTimesByDate.length; i++) {
-        console.log(`availableTimesByDate[i].date is ${availableTimesByDate[i].date}`);
-        console.log(`availabletimes is ${availableTimesByDate[i].availableTimes}`);
+    const formattedDate = formatDate(theDate);
+    for(let i = 0; i < availableTimesByDate.length; i++) {
+      if(availableTimesByDate[i].date === formattedDate) {
         return {availableTimes: availableTimesByDate[i].availableTimes};
       }
+      return { availableTimes: ['10:00', '11:00']};
     }
-
-    //return { 'availableTimes': availableTimesByDate[0].availableTimes};
-    //fetchData(formatDate(new Date())); 
-//Tip: You can create a Date object to represent today’s date.
   }
 
   const reducer = (state, action) => {
-    //return {avaiableTimes: initialAvailableTimes};
-    console.log('in the reducer');
     console.log(`action.type is ${action.type}`);
     switch(action.type) {
       case 'updateTimesBasedOnDate':
-        return {availableTimes: state.availableTimes};
-    }  
+        return state.availableTimes = initializeTimes(action.payload)};
   };
-  
-  //change availableTimes to a reducer using the useReducer function and provide the two previous functions as parameters.
-  const [state, dispatch] = useReducer(reducer, initializeTimes('2023-09-22')); 
+
+  const [state, dispatch] = useReducer(reducer, theDate, initializeTimes); 
 
   function formatDate(date) {
     var d = new Date(date),

@@ -22,8 +22,14 @@ const availableTimesByDate =
     {date: '2023-09-19', availableTimes: ['10:00', '11:00', '12:00']},
     {date: '2023-09-20', availableTimes: ['14:00', '15:00', '16:00']},
     {date: '2023-09-21', availableTimes: ['11:00', '14:00', '16:00']},
-    {date: '2023-09-22', availableTimes: ['11:00', '14:00', '16:00']}
+    {date: '2023-09-22', availableTimes: ['12:00', '14:00', '16:00']},
+    {date: '2023-09-23', availableTimes: ['13:00', '14:00', '16:00']},
+    {date: '2023-09-24', availableTimes: ['14:00', '15:00', '16:00']},
+    {date: '2023-09-25', availableTimes: ['15:00', '16:00', '17:00']},
+    {date: '2023-09-26', availableTimes: ['18:00', '19:00', '20:00']},
+    {date: '2023-09-27', availableTimes: ['11:00']}
 ]
+
 
 const availableTimesWithDateKey = [
     {'2023-08-29': ['10:00', '11:00', '12:00']},

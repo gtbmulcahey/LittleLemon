@@ -12,7 +12,8 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
     const handleDateChange = (e) => {
         console.log(e.currentTarget.value);
         setField(e.currentTarget.id);
-        dispatch({type: 'updateTimesBasedOnDate'});
+        console.log(`e.target.value is ${e.currentTarget.value}`);
+        dispatch({type: 'updateTimesBasedOnDate', payload: e.currentTarget.value});
     }
 
     return (
