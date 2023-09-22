@@ -10,6 +10,7 @@ import Menu from './Menu';
 import Bookings from './Bookings';
 import OrderOnline from './OrderOnline';
 import availableTimesByDate from "./mockData";
+import ConfirmedBooking from './ConfirmedBooking';
 
 function Main() {
   
@@ -48,7 +49,16 @@ function Main() {
         day = '0' + day;
 
     return [year, month, day].join('-');
-}
+  }
+
+  const submitForm = (formData) => {
+    //submitApi not working return true;
+    console.log(`formData is ${formData}`);
+    state.date = formData;
+    console.log(`state.date is ${state.date}`);
+    console.log(`state.availableTimes is ${state.availableTimes}`);
+    window.open(`/ConfirmedBooking/`); 
+  }
   
   return (
     <BrowserRouter>
@@ -59,7 +69,8 @@ function Main() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/About" element={<About/>}></Route>
           <Route path="/Menu" element={<Menu/>}></Route>
-          <Route path="/Bookings" element={<Bookings  availableTimes={state.availableTimes} dispatch={dispatch} field={field} setField={setField}/>}></Route>
+          <Route path="/Bookings" element={<Bookings submitForm={submitForm} availableTimes={state.availableTimes} dispatch={dispatch} field={field} setField={setField}/>}></Route>
+          <Route path="/ConfirmedBooking" element={<ConfirmedBooking/>}></Route>
           <Route path="/OrderOnline" element={<OrderOnline/>}></Route>
         </Routes>
         <Footer/>

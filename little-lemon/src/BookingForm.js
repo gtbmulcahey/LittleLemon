@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import './css/Reservations.css';
 
-function BookingForm( {availableTimes, dispatch, field, setField}) {
+function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
 
     useEffect(() => {
         console.log(`in booking form field is ${field} right now`);
@@ -18,7 +18,7 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("reservation confirmed");
+        submitForm(event.currentTarget[0].value);
     }
 
     return (
