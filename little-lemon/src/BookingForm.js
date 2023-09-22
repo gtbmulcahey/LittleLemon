@@ -16,10 +16,15 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
         dispatch({type: 'updateTimesBasedOnDate', payload: e.currentTarget.value});
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert("reservation confirmed");
+    }
+
     return (
         <>
         <h1>This is the Booking Form</h1>
-            <form className="reservations">
+            <form className="reservations" onSubmit={handleSubmit}>
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" 
                     onChange={handleDateChange}
