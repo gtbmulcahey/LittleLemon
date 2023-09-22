@@ -4,6 +4,11 @@ nav {
     font-size: larger;
 }
 
-a {
-    text-decoration: none;
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    padding-inline: inherit;
 }

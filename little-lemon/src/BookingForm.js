@@ -4,9 +4,9 @@ import './css/Reservations.css';
 function BookingForm( {availableTimes, dispatch, field, setField}) {
 
     useEffect(() => {
-        console.log(`field is ${field} right now`);
-        console.log(`availableTimes is ${availableTimes} right now`);
-        console.log(`dispatch is ${dispatch} right now`);
+        console.log(`in booking form field is ${field} right now`);
+        console.log(`in booking form availableTimes is ${availableTimes} right now`);
+        console.log(`in booking form dispatch is ${dispatch} right now`);
     }, [field, availableTimes, dispatch]);
 
     const handleDateChange = (e) => {
@@ -16,6 +16,8 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
     }
 
     return (
+        <>
+        <h1>This is the Booking Form</h1>
             <form className="reservations">
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" 
@@ -38,6 +40,7 @@ function BookingForm( {availableTimes, dispatch, field, setField}) {
                 </select>
                 <input type="submit" value="Make Your reservation"/>
             </form>
+            </>
     );
 }
 

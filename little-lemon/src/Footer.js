@@ -2,6 +2,7 @@ import './css/Footer.css';
 import { ImageDisplay } from './ImageDisplay';
 import { printProps } from './printProps';
 import Logo from './images/Logo.svg';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   const ImageWrapped = printProps(ImageDisplay);
@@ -10,24 +11,24 @@ function Footer() {
       <footer>
         <ImageWrapped height="32" width="100" alt="little lemon" imageImported={Logo}/>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/About">About</a></li>
-          <li><a href="/Menu">Menu</a></li>
-          <li><a href="/Bookings">Reservations</a></li>
-          <li><a href="/OrderOnline">Order Online</a></li>
-          <li><a href="/Login">Login</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/About">About</Link></li>
+          <li><Link to="/Menu">Menu</Link></li>
+          <li><Link to="/Bookings">Reservations</Link></li>
+          <li><Link to="/OrderOnline">Order Online</Link></li>
+          <li><Link to="/Login">Login</Link></li>
         </ul>
 
         <ul>
-          <li><a href="\">Address</a></li>
-          <li><a href="\">Phone Number</a></li>
-          <li><a href="\">Email</a></li>
+          <li><Link to="\">Address</Link></li>
+          <li><Link to="\">Phone Number</Link></li>
+          <li><Link to="\">Email</Link></li>
         </ul>
 
         <ul>
-          <li><a href="\">Social Media Link1</a></li>
-          <li><a href="\">Social Media Link2</a></li>
-          <li><a href="\">Social Media Link3</a></li>
+          <li><Link to="\">Social Media Link1</Link></li>
+          <li><Link to="\">Social Media Link2</Link></li>
+          <li><Link to="\">Social Media Link3</Link></li>
         </ul>
       </footer>
   );
