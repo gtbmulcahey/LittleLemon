@@ -50,6 +50,16 @@
   width: 50%;
 }
 
+input {
+  border-radius: 16%;
+  width: max-content;
+}
+
+select {
+  border-radius: 16%;
+  width: max-content;
+}
+
 /*gold color #F4CE14
 
 title 64 Markazi

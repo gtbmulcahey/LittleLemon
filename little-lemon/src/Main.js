@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from 'react';
+import { useState, useReducer } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
@@ -12,8 +12,8 @@ import OrderOnline from './OrderOnline';
 import availableTimesByDate from "./mockData";
 import ConfirmedBooking from './ConfirmedBooking';
 
+
 function Main() {
-  
   const [field, setField] = useState('res-date');
   
   const theDate = '2023-09-22';
@@ -58,6 +58,7 @@ function Main() {
     console.log(`state.date is ${state.date}`);
     console.log(`state.availableTimes is ${state.availableTimes}`);
     window.open(`/ConfirmedBooking/`); 
+    
   }
   
   return (

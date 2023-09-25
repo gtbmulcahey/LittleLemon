@@ -3,6 +3,8 @@ import './css/Reservations.css';
 
 function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
 
+    //const navigate = useNavigate();
+
     useEffect(() => {
         console.log(`in booking form field is ${field} right now`);
         console.log(`in booking form availableTimes is ${availableTimes} right now`);
@@ -19,18 +21,19 @@ function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         submitForm(event.currentTarget[0].value);
+        //navigate('/ConfirmedBooking');
     }
 
     return (
-        <>
-        <h1>This is the Booking Form</h1>
+        <div className="gold booking-form-content olive-background">
+        <h1>Reserve a Table</h1>
             <form className="reservations" onSubmit={handleSubmit}>
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" 
                     onChange={handleDateChange}
                 />
                 <label htmlFor="res-time">Choose time</label>
-                <select id="res-time" onChange={() => setField("res-time")}>
+                <select data-testid='availableTimesTestId' id="res-time" onChange={() => setField("res-time")}>
                 {availableTimes.map((time, i) => (
                     <option key={i}>{time}</option>
             ))}
@@ -44,9 +47,9 @@ function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <input type="submit" value="Make Your reservation"/>
+                <input type="submit" className='gold-background' value="Make Your reservation"/>
             </form>
-            </>
+            </div>
     );
 }
 
