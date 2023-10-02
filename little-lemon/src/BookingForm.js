@@ -1,9 +1,24 @@
 import { useEffect } from "react";
+import { NumericFormat } from 'react-number-format';
 import './css/Reservations.css';
+import { useFormik } from "formik";
+import {
+    Button,
+    FormControl,
+    FormErrorMessage,
+    FormLabel,
+    Heading,
+    Input,
+    Select,
+    VStack,
+  } from "@chakra-ui/react";
+import * as Yup from 'yup';
+import FullScreenSection from "./FullScreenSection";
+import useSubmit from "./useSubmit";
+
 
 function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
-
-    //const navigate = useNavigate();
+    const { isLoading, response, submit } = useSubmit();
 
     useEffect(() => {
         console.log(`in booking form field is ${field} right now`);
@@ -18,38 +33,105 @@ function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
         dispatch({type: 'updateTimesBasedOnDate', payload: e.currentTarget.value});
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        submitForm(event.currentTarget[0].value);
-        //navigate('/ConfirmedBooking');
-    }
+    const formik = useFormik({
+        initialValues: {
+            reservationDate: '',
+            reservationTime: '',
+            guests: '',
+            occasion: 'Anniversary',
+          
+        },
+        onSubmit: (values) => {
+          //alert(JSON.stringify(values, null, 2));
+          submit("someUrl", values);
+        },
+        validationSchema: Yup.object().shape({
+            reservationDate: new Yup.DateSchema()
+            .required("Required"),
+            reservationTime: Yup.string()
+            .required("Required"),
+            guests: new Yup.NumberSchema()
+            .required("Required"),
+            occasion: Yup.string()
+            .required("Required")
+        }),
+      });
 
     return (
-        <div className="gold booking-form-content olive-background">
-        <h1>Reserve a Table</h1>
-            <form className="reservations" onSubmit={handleSubmit}>
-                <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" 
-                    onChange={handleDateChange}
-                />
-                <label htmlFor="res-time">Choose time</label>
-                <select data-testid='availableTimesTestId' id="res-time" onChange={() => setField("res-time")}>
-                {availableTimes.map((time, i) => (
-                    <option key={i}>{time}</option>
-            ))}
-                </select>
-                <label htmlFor="guests">Number of guests</label>
-                <input type="number" placeholder="1" min="1" max="10" id="guests"
-                onChange={() => setField("guests")}/>
-                <label htmlFor="occasion">Occasion</label>
-                <select id="occasion"
-                onChange={() => setField("occasion")}>
-                    <option>Birthday</option>
-                    <option>Anniversary</option>
-                </select>
-                <input type="submit" className='gold-background' value="Make Your reservation"/>
-            </form>
-            </div>
+        // <div className="gold booking-form-content olive-background">
+    <div className='olive booking-form-content gold-background'> 
+            <Heading as="h1" className='olive' id="reserveTableSection">Reserve a Table</Heading>
+                <form className="reservations olive" onSubmit={formik.handleSubmit}>
+                    <VStack alignItems="flex-start">
+                        <FormControl isInvalid={formik.touched.reservationDate && formik.errors.reservationDate}>
+                            <FormLabel htmlFor="reservationDate">Choose date</FormLabel>
+                            <Input id="reservationDate" 
+                                type="date" 
+                                value={formik.values.reservationDate}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                //onChange={handleDateChange}
+                                required
+                            />
+                            <FormErrorMessage>Required</FormErrorMessage>
+                        </FormControl> 
+
+                        <FormControl isInvalid={false}>
+                            <FormLabel htmlFor="reservationTime">Choose time</FormLabel>
+                            <Select id="reservationTime" 
+                                required 
+                                value={formik.values.reservationTime}
+                                data-testid='availableTimesTestId'
+                                onBlur={formik.handleBlur}
+                                onSelect={formik.handleChange}
+                                onChange={(e) => {
+                                    formik.setFieldValue('reservationTime', e.target.value);
+                                }}
+                            >
+                                {availableTimes.map((time, i) => (
+                                <option key={i}>{time}</option>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        
+                        <FormControl isInvalid={formik.touched.guests && formik.errors.guests}>
+                            <FormLabel htmlFor="guests">Number of guests</FormLabel>
+                            <NumericFormat id="guests"
+                                name="guests" 
+                                required 
+                                type="number" 
+                                value={formik.values.guests}
+                                placeholder="1" 
+                                min="1" 
+                                max="10" 
+                                onValueChange={(values) => {
+                                    const {value} = values;
+                                    formik.setFieldValue("guests", value);
+                                    }}
+                                    />
+                            <FormErrorMessage>Required</FormErrorMessage>
+                        </FormControl>
+
+                        <FormControl isInvalid={false}>
+                            <FormLabel htmlFor="occasion">Occasion</FormLabel>
+                            <Select id="occasion" 
+                                onSelect={formik.handleChange}
+                                value={formik.values.occasion}
+                                onBlur={formik.handleBlur}
+                                onChange={(e) => {
+                                    formik.setFieldValue('occasion', e.target.value);
+                                }}
+                                >
+                                <option>Birthday</option>
+                                <option>Anniversary</option>
+                            </Select>
+                        </FormControl>
+
+
+                        <Button isLoading={isLoading} type="submit" className='white olive-background' width="full">Reserve Table</Button>
+                    </VStack>
+                </form>
+    </div>
     );
 }
 

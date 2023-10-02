@@ -1,9 +1,24 @@
 .reservations {
-    display: grid; 
-    max-width: 200px; 
-    gap: 20px
+   display:flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.formItems {
+    align-items: flex-start;
+    -webkit-box-align: initial;
 }
 
 .booking-form-content {
-    padding: 5%;;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.confirmedReservation {
+    padding:5%;
+}
+
+.reservationFormWrapper {
 }

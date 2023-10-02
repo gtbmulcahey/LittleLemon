@@ -14,7 +14,7 @@ import ConfirmedBooking from './ConfirmedBooking';
 
 
 function Main() {
-  const [field, setField] = useState('res-date');
+  const [field, setField] = useState('reservationDate');
   
   const theDate = '2023-09-22';
 
@@ -28,14 +28,14 @@ function Main() {
     }
   }
 
-  const reducer = (state, action) => {
+  const reducerUpdateTimes = (state, action) => {
     console.log(`action.type is ${action.type}`);
     switch(action.type) {
       case 'updateTimesBasedOnDate':
         return state.availableTimes = initializeTimes(action.payload)};
   };
 
-  const [state, dispatch] = useReducer(reducer, theDate, initializeTimes); 
+  const [state, dispatch] = useReducer(reducerUpdateTimes, theDate, initializeTimes); 
 
   function formatDate(date) {
     var d = new Date(date),
