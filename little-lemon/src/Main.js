@@ -24,8 +24,8 @@ function Main() {
       if(availableTimesByDate[i].date === formattedDate) {
         return {availableTimes: availableTimesByDate[i].availableTimes};
       }
-      return { availableTimes: ['10:00', '11:00']};
     }
+    return { availableTimes: ['10:00', '11:00']};
   }
 
   const reducerUpdateTimes = (state, action) => {
