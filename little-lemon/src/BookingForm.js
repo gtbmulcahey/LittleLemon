@@ -17,14 +17,15 @@ import FullScreenSection from "./FullScreenSection";
 import useSubmit from "./useSubmit";
 
 
-function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
+function BookingForm( {submitForm, date, availableTimes, dispatch, field, setField}) {
     const { isLoading, response, submit } = useSubmit();
 
     useEffect(() => {
         console.log(`in booking form field is ${field} right now`);
+        console.log(`in booking form date is ${date} right now`);
         console.log(`in booking form availableTimes is ${availableTimes} right now`);
         console.log(`in booking form dispatch is ${dispatch} right now`);
-    }, [field, availableTimes, dispatch]);
+    }, [field, date, availableTimes, dispatch]);
 
     const handleDateChange = (e) => {
         console.log(e.currentTarget.value);
@@ -35,14 +36,14 @@ function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
 
     const formik = useFormik({
         initialValues: {
-            reservationDate: '',
+            reservationDate: date,
             reservationTime: '',
             guests: '',
             occasion: 'Anniversary',
           
         },
         onSubmit: (values) => {
-          //alert(JSON.stringify(values, null, 2));
+          alert(JSON.stringify(values, null, 2));
           submit("someUrl", values);
         },
         validationSchema: Yup.object().shape({
@@ -123,6 +124,7 @@ function BookingForm( {submitForm, availableTimes, dispatch, field, setField}) {
                                 }}
                                 >
                                 <option>Birthday</option>
+                                <option>Engagement</option>
                                 <option>Anniversary</option>
                             </Select>
                         </FormControl>

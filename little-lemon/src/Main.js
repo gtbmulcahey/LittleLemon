@@ -22,10 +22,10 @@ function Main() {
     const formattedDate = formatDate(theDate);
     for(let i = 0; i < availableTimesByDate.length; i++) {
       if(availableTimesByDate[i].date === formattedDate) {
-        return {availableTimes: availableTimesByDate[i].availableTimes};
+        return {date: theDate, availableTimes: availableTimesByDate[i].availableTimes};
       }
     }
-    return { availableTimes: ['10:00', '11:00']};
+    return { date: theDate, availableTimes: ['10:00', '11:00']};
   }
 
   const reducerUpdateTimes = (state, action) => {
@@ -70,7 +70,7 @@ function Main() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/About" element={<About/>}></Route>
           <Route path="/Menu" element={<Menu/>}></Route>
-          <Route path="/Bookings" element={<Bookings submitForm={submitForm} availableTimes={state.availableTimes} dispatch={dispatch} field={field} setField={setField}/>}></Route>
+          <Route path="/Bookings" element={<Bookings submitForm={submitForm} date={state.date} availableTimes={state.availableTimes} dispatch={dispatch} field={field} setField={setField}/>}></Route>
           <Route path="/ConfirmedBooking" element={<ConfirmedBooking/>}></Route>
           <Route path="/OrderOnline" element={<OrderOnline/>}></Route>
         </Routes>

@@ -79,11 +79,11 @@ input:focus:invalid {
 }
 
 input:required:valid {
-  border-color: green;
+  border-color: rgb(193, 195, 197);
 }
 
 input:required:focus:valid {
-  background:  lightgreen;
+  background:  rgb(193, 195, 197);
   background-size: 25px;
 }
 
