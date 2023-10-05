@@ -36,7 +36,7 @@ function BookingForm( {submitForm, date, availableTimes, dispatch, field, setFie
 
     const formik = useFormik({
         initialValues: {
-            reservationDate: date,
+            date: date,
             reservationTime: '',
             guests: '',
             occasion: 'Anniversary',
@@ -47,7 +47,7 @@ function BookingForm( {submitForm, date, availableTimes, dispatch, field, setFie
           submit("someUrl", values);
         },
         validationSchema: Yup.object().shape({
-            reservationDate: new Yup.DateSchema()
+            date: new Yup.DateSchema()
             .required("Required"),
             reservationTime: Yup.string()
             .required("Required"),
@@ -64,12 +64,12 @@ function BookingForm( {submitForm, date, availableTimes, dispatch, field, setFie
             <Heading as="h1" className='olive' id="reserveTableSection">Reserve a Table</Heading>
                 <form className="reservations olive" onSubmit={formik.handleSubmit}>
                     <VStack alignItems="flex-start">
-                        <FormControl isInvalid={formik.touched.reservationDate && formik.errors.reservationDate}>
-                            <FormLabel htmlFor="reservationDate">Choose date</FormLabel>
-                            <Input id="reservationDate" 
+                        <FormControl isInvalid={false}>
+                            <FormLabel htmlFor="date">Choose date</FormLabel>
+                            <Input id="date" 
                                 type="date" 
-                                value={formik.values.reservationDate}
-                                onChange={formik.handleChange}
+                                value={date}
+                                onChange={handleDateChange}
                                 onBlur={formik.handleBlur}
                                 //onChange={handleDateChange}
                                 required
