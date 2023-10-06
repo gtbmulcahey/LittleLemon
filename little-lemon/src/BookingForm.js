@@ -81,7 +81,7 @@ function BookingForm( {date, availableTimes, dispatch, field, setField}) {
         console.log(`in booking form dispatch is ${dispatch} right now`);
         console.log('Form values', formik.values);
         if(response) {
-                navigate("/ConfirmedBooking");
+                navigate("/ConfirmedBooking/", { state: formik.values });
                 formik.resetForm();
         }  
     }, [field, date, availableTimes, dispatch, response, formik.values]);
