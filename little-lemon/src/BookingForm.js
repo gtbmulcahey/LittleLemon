@@ -38,8 +38,28 @@ function BookingForm( {date, availableTimes, dispatch, field, setField}) {
                 //const { date, reservationTime, guests, occasion } = values;
                 //console.log(`SubmittedreservationTime is ${reservationTime}`);
                 //submit(url='someUrl', data={formValues})
-                //submit({url: 'someUrl', data: values});
+                submit({url: 'someUrl', data: values});
               
+        },
+        validate: values => {
+            let errors = {};
+
+            if(!values.date) {
+                errors.date = 'Required'
+            }
+
+            if(!values.reservationTime) {
+                errors.reservationTime = 'Required'
+            }
+
+            if(!values.guests) {
+                errors.guests = 'Required'
+            }
+
+            if(!values.occasion) {
+                errors.occasion = 'Required'
+            }
+            return errors;
         },
         validationSchema: Yup.object().shape({
             date: new Yup.DateSchema()
@@ -61,14 +81,8 @@ function BookingForm( {date, availableTimes, dispatch, field, setField}) {
         console.log(`in booking form dispatch is ${dispatch} right now`);
         console.log('Form values', formik.values);
         if(response) {
-            if(response.type === "success") {
-                console.log(`success`);
-                alert('success!');
-                navigate('\ConfirmedBooking');
+                navigate("/ConfirmedBooking");
                 formik.resetForm();
-            } else {
-                alert('error!');
-            }
         }  
     }, [field, date, availableTimes, dispatch, response, formik.values]);
 
