@@ -65,6 +65,14 @@ button {
   margin-bottom: 5%;
 }
 
+button:hover {
+  opacity: .7;
+}
+
+button:focus{
+  background: rgb(193, 195, 197);
+}
+
 input:required {
   border-color: black;
 }

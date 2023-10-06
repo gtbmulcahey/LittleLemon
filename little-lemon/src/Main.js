@@ -13,15 +13,16 @@ import availableTimesByDate from "./mockData";
 import ConfirmedBooking from './ConfirmedBooking';
 
 
+
 function Main() {
+
   const [field, setField] = useState('reservationDate');
   
   const theDate = '2023-09-22';
 
   const initializeTimes = (theDate) => {
-    const formattedDate = formatDate(theDate);
     for(let i = 0; i < availableTimesByDate.length; i++) {
-      if(availableTimesByDate[i].date === formattedDate) {
+      if(availableTimesByDate[i].date === theDate) {
         return {date: theDate, availableTimes: availableTimesByDate[i].availableTimes};
       }
     }
@@ -37,29 +38,6 @@ function Main() {
 
   const [state, dispatch] = useReducer(reducerUpdateTimes, theDate, initializeTimes); 
 
-  function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    return [year, month, day].join('-');
-  }
-
-  const submitForm = (formData) => {
-    //submitApi not working return true;
-    console.log(`formData is ${formData}`);
-    state.date = formData;
-    console.log(`state.date is ${state.date}`);
-    console.log(`state.availableTimes is ${state.availableTimes}`);
-    window.open(`/ConfirmedBooking/`); 
-    
-  }
   
   return (
     <BrowserRouter>
@@ -70,7 +48,7 @@ function Main() {
           <Route path="/" element={<Home/>}></Route>
           <Route path="/About" element={<About/>}></Route>
           <Route path="/Menu" element={<Menu/>}></Route>
-          <Route path="/Bookings" element={<Bookings submitForm={submitForm} date={state.date} availableTimes={state.availableTimes} dispatch={dispatch} field={field} setField={setField}/>}></Route>
+          <Route path="/Bookings" element={<Bookings date={state.date} availableTimes={state.availableTimes} dispatch={dispatch} field={field} setField={setField}/>}></Route>
           <Route path="/ConfirmedBooking" element={<ConfirmedBooking/>}></Route>
           <Route path="/OrderOnline" element={<OrderOnline/>}></Route>
         </Routes>

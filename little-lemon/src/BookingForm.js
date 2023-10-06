@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 import { NumericFormat } from 'react-number-format';
 import './css/Reservations.css';
 import { useFormik } from "formik";
@@ -17,34 +18,28 @@ import FullScreenSection from "./FullScreenSection";
 import useSubmit from "./useSubmit";
 
 
-function BookingForm( {submitForm, date, availableTimes, dispatch, field, setField}) {
+function BookingForm( {date, availableTimes, dispatch, field, setField}) {
+
     const { isLoading, response, submit } = useSubmit();
-
-    useEffect(() => {
-        console.log(`in booking form field is ${field} right now`);
-        console.log(`in booking form date is ${date} right now`);
-        console.log(`in booking form availableTimes is ${availableTimes} right now`);
-        console.log(`in booking form dispatch is ${dispatch} right now`);
-    }, [field, date, availableTimes, dispatch]);
-
-    const handleDateChange = (e) => {
-        console.log(e.currentTarget.value);
-        setField(e.currentTarget.id);
-        console.log(`e.target.value is ${e.currentTarget.value}`);
-        dispatch({type: 'updateTimesBasedOnDate', payload: e.currentTarget.value});
-    }
+    const navigate = useNavigate();
+    const firstAvailableTime = availableTimes[0];
 
     const formik = useFormik({
         initialValues: {
             date: date,
-            reservationTime: '',
-            guests: '',
+            reservationTime: firstAvailableTime,
+            guests: '1',
             occasion: 'Anniversary',
-          
         },
         onSubmit: (values) => {
-          alert(JSON.stringify(values, null, 2));
-          submit("someUrl", values);
+            console.log('Form data submit', values);
+          //alert(JSON.stringify(values, null, 2));
+            //await submit("someUrl", values);
+                //const { date, reservationTime, guests, occasion } = values;
+                //console.log(`SubmittedreservationTime is ${reservationTime}`);
+                //submit(url='someUrl', data={formValues})
+                //submit({url: 'someUrl', data: values});
+              
         },
         validationSchema: Yup.object().shape({
             date: new Yup.DateSchema()
@@ -58,6 +53,36 @@ function BookingForm( {submitForm, date, availableTimes, dispatch, field, setFie
         }),
       });
 
+    useEffect(() => {
+        console.log(`in booking form field is ${field} right now`);
+        console.log(`in booking form date is ${date} right now`);
+        console.log(`in booking form availableTimes is ${availableTimes} right now`);
+        console.log(`in booking form first availableTime is ${firstAvailableTime} right now`);
+        console.log(`in booking form dispatch is ${dispatch} right now`);
+        console.log('Form values', formik.values);
+        if(response) {
+            if(response.type === "success") {
+                console.log(`success`);
+                alert('success!');
+                navigate('\ConfirmedBooking');
+                formik.resetForm();
+            } else {
+                alert('error!');
+            }
+        }  
+    }, [field, date, availableTimes, dispatch, response, formik.values]);
+
+
+    const handleDateChange = (e) => {
+        console.log(e.currentTarget.value);
+        setField(e.currentTarget.id);
+        formik.setFieldValue("date", e.currentTarget.value);
+        console.log(`e.target.value is ${e.currentTarget.value}`);
+        dispatch({type: 'updateTimesBasedOnDate', payload: e.currentTarget.value});
+    }
+
+
+
     return (
         // <div className="gold booking-form-content olive-background">
     <div className='olive booking-form-content gold-background'> 
@@ -68,7 +93,7 @@ function BookingForm( {submitForm, date, availableTimes, dispatch, field, setFie
                             <FormLabel htmlFor="date">Choose date</FormLabel>
                             <Input id="date" 
                                 type="date" 
-                                value={date}
+                                value={formik.values.date}
                                 onChange={handleDateChange}
                                 onBlur={formik.handleBlur}
                                 //onChange={handleDateChange}
