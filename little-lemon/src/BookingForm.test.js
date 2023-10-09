@@ -30,6 +30,6 @@ test('clickReservationsLink', async () =>{
   const {getByTestId} = render(<Main/>);
   const navBookingsLink = getByTestId('navBookings');
   fireEvent.click(navBookingsLink);
-  expect(getByTestId('availableTimesTestId')).toHaveTextContent('10:00');
-  expect(getByTestId('availableTimesTestId')).toHaveTextContent('11:00');
+  expect(getByTestId('availableTimesTestId')).toHaveTextContent('12:00');
+  expect(getByTestId('availableTimesTestId')).toHaveTextContent('14:00');
 })

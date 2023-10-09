@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
+//import {useNavigate} from 'react-router-dom';
 import { NumericFormat } from 'react-number-format';
 import './css/Reservations.css';
 import { useFormik } from "formik";
@@ -14,14 +14,12 @@ import {
     VStack,
   } from "@chakra-ui/react";
 import * as Yup from 'yup';
-import FullScreenSection from "./FullScreenSection";
 import useSubmit from "./useSubmit";
 
 
-function BookingForm( {date, availableTimes, dispatch, field, setField}) {
+function BookingForm( {date, availableTimes, dispatch, field, setField, confirmBooking}) {
 
     const { isLoading, response, submit } = useSubmit();
-    const navigate = useNavigate();
     const firstAvailableTime = availableTimes[0];
 
     const formik = useFormik({
@@ -81,7 +79,7 @@ function BookingForm( {date, availableTimes, dispatch, field, setField}) {
         console.log(`in booking form dispatch is ${dispatch} right now`);
         console.log('Form values', formik.values);
         if(response) {
-                navigate("/ConfirmedBooking/", { state: formik.values });
+                confirmBooking(formik.values);
                 formik.resetForm();
         }  
     }, [field, date, availableTimes, dispatch, response, formik.values]);
