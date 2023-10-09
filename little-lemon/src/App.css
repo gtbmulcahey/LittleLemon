@@ -95,6 +95,12 @@ input:required:focus:valid {
   background-size: 25px;
 }
 
+select:focus {
+  background:  rgb(193, 195, 197);
+  background-size: 25px;
+}
+
+
 select {
   border-radius: 16%;
   width: max-content;
